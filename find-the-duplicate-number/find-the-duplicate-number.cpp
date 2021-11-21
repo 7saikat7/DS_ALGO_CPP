@@ -1,6 +1,7 @@
 
 class Solution {
 public:
+    int val=0;
     int findDuplicate(vector<int>& nums) {
      int finder=0;
      sort(nums.begin(),nums.end());
