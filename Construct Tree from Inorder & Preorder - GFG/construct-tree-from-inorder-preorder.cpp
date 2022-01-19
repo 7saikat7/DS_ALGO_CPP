@@ -58,6 +58,7 @@ public:
         int pos = search(inorder, start, end, root->data);
         root->left = makeTree(preorder, inorder, start, pos-1);
         root->right = makeTree(preorder, inorder, pos+1, end);
+        return root;
     }
 
     
