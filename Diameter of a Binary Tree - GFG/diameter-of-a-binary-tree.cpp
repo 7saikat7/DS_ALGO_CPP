@@ -92,7 +92,7 @@ struct Node
 }; */
 
 class Solution {
-  int ma;
+  int ma=0;
   public:
     // Function to return the diameter of a Binary Tree.
         int func(Node* root){
@@ -103,7 +103,7 @@ class Solution {
         return (max(x,y)+1);
     }
     int diameter(Node* root) {
-     ma=INT_MIN;
+     
      int x=func(root);
      return ma;
     }
