@@ -13,7 +13,7 @@ class Solution {
 int ma;
 public:
     int diameterOfBinaryTree(TreeNode* root) {
-     ma=0;
+     
      int b=func(root);
      return ma-1;
     }
