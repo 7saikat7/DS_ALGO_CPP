@@ -11,22 +11,17 @@
  */
 class Solution {
 public:
-    void postorder(TreeNode* root,int &sum)
-    {
-        if(root)
-        {
-            postorder(root->right,sum);
-            
-            sum+=root->val;;
-            
-            root->val=sum;
-            
-            postorder(root->left,sum);
-        }
-    }
     TreeNode* bstToGst(TreeNode* root) {
-        int sum=0;
-        postorder(root,sum);
-        return root;
+    int ans=0;
+    backtrack(root,ans);
+    return root;
+    }
+    void backtrack(TreeNode* root,int &ans){
+        if(root==NULL) return ; 
+        backtrack(root->right,ans);
+        ans=ans+root->val;
+        root->val=ans;
+        backtrack(root->left, ans);
+        
     }
 };
