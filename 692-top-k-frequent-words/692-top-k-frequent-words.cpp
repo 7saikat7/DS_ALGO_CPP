@@ -16,21 +16,23 @@ public:
         priority_queue<pair<string,int>,vector<pair<string,int>>,comp_func> minheap;
         
         for(const auto &it:mpp){
-            if(minheap.size()<k){
-                minheap.push({it.first,it.second});
-            }
-            else{
-                if(it.second>minheap.top().second){
-                    minheap.pop();
-                    minheap.push({it.first,it.second});
-                }
-                else if(it.second==minheap.top().second){
+             minheap.push(it);
+             if(minheap.size()>k) minheap.pop();
+//             if(minheap.size()<k){
+//                 minheap.push({it.first,it.second});
+//             }
+//             else{
+//                 if(it.second>minheap.top().second){
+//                     minheap.pop();
+//                     minheap.push({it.first,it.second});
+//                 }
+//                 else if(it.second==minheap.top().second){
                     
-                    if(it.first<minheap.top().first){
-                        minheap.pop();
-                        minheap.push({it.first,it.second});}
-                }
-            }
+//                     if(it.first<minheap.top().first){
+//                         minheap.pop();
+//                         minheap.push({it.first,it.second});}
+//                 }
+//             }
         }
         while(!minheap.empty()){
             ans.push_back(minheap.top().first);
