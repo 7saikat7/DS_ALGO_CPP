@@ -12,25 +12,24 @@
 class Solution {
 public:
     //unordered_map<int, vector<TreeNode*>> cache;
-    vector<TreeNode*> allPossibleFBT(int N) {
-        vector<TreeNode*> res;
-     //   if(cache[N].size() != 0) return cache[N];
-        if(N == 1) {
-            res.push_back(new TreeNode(0));
-        } else {
-            for (int i = 1; i < N; i += 2) {
-                int l = i, r = N - i - 1;
-                for (TreeNode* left : allPossibleFBT(l)) {
-                    for (TreeNode* right : allPossibleFBT(r)) {
-                        TreeNode * root = new TreeNode(0);
-                        root->left = left;
-                        root->right = right;
-                        res.push_back(root);
-                    }
+    vector<TreeNode*> allPossibleFBT(int n) {
+    vector<TreeNode*> ans;
+    //if(cache[n].size() != 0) return cache[n];
+    if(n==1) {ans.push_back(new TreeNode(0));}
+    else{
+        for(int i=1;i<n;i+=2){
+            int l=i,r=n-i-1;
+            for(TreeNode* it:allPossibleFBT(l)){
+                for(TreeNode* it2:allPossibleFBT(r)){
+                    TreeNode* root=new TreeNode(0);
+                    root->left=it;
+                    root->right=it2;
+                    ans.push_back(root);
                 }
             }
         }
-     //   cache[N] = res;
-        return res;
+        
+    }  
+        return ans;
     }
 };
