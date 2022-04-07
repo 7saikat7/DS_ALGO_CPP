@@ -1,14 +1,14 @@
 class Solution {
 public:
-    struct comp{
-        bool operator()(int &a,int &b){
-          if(a<=b) return true;
-          else return false;
-        }
-    };
+    // struct comp{
+    //     bool operator()(int &a,int &b){
+    //       if(a<=b) return true;
+    //       else return false;
+    //     }
+    // };
     int lastStoneWeight(vector<int>& stones) {
      if(stones.size()==0) return 0;
-     priority_queue<int,vector<int>,comp> pq;
+     priority_queue<int,vector<int>> pq;
      for(auto it:stones){
          pq.push(it);
      }
