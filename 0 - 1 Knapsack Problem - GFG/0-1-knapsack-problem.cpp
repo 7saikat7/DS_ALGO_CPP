@@ -5,30 +5,35 @@ using namespace std;
 
  // } Driver Code Ends
 class Solution
-{   int dp[1002][1002];
-    
+{
     public:
     //Function to return max value that can be put in knapsack of capacity W.
     int knapSack(int W, int wt[], int val[], int n) 
-    {     memset(dp,-1,sizeof(dp));
-        return func(W,wt,val,n);
-    };
-    int func(int W, int wt[], int val[], int n) {
-      if(W==0 || n==0){
-           return 0;
-       }
-     
-       if(dp[n][W] != -1) return dp[n][W];
+    { 
+       int t[n+1][W+1];
        
-       if(wt[n-1]<=W)
-        {
-          return dp[n][W]=max(val[n-1]+func(W-wt[n-1],wt,val,n-1),func(W,wt,val,n-1));
+       for(int i=0; i<=n; i++)
+       t[i][0]=0;
+       
+       for(int j=0; j<=W; j++)
+       t[0][j]=0;
+       
+       for(int i=1;i<n+1;i++){
+           for(int j=1;j<W+1;j++){
+               if (i==0 || j==0) t[i][j]==0;
+               
+               else if(wt[i-1]<=j){
+                   t[i][j]=max(val[i-1]+t[i-1][j-wt[i-1]],t[i-1][j]);
+               }
+               else{
+                   t[i][j]=t[i-1][j];
+               }
+           }
        }
-       else if(wt[n-1]>W)
-       {
-          return dp[n][W]=func(W,wt,val,n-1);
-       }
+       return t[n][W];
     }
+    
+   
 };
 
 // { Driver Code Starts.
