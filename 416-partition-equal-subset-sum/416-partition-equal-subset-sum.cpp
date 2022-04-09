@@ -10,10 +10,10 @@ public:
       int target=sum/2;
       int t[N+1][target+1];
       if(sum%2 ==0 ){
-          for(int j=0;j<target+1;j++){
+          for(int j=0;j<=target;j++){
               t[0][j]=0;
           }
-          for(int i=0;i<N+1;i++){
+          for(int i=0;i<=N;i++){
              t[i][0]=1;
           }
           for(int i=1;i<N+1;i++){
