@@ -12,7 +12,7 @@ public:
      for(auto it:nums){
          mpp[it]++;
      }
-        priority_queue<pair<int,int>,vector<pair<int,int>>,comp> pq; 
+    priority_queue<pair<int,int>,vector<pair<int,int>>,comp> pq; 
     for(auto &it:mpp){
         pq.push(it);
         if(pq.size()>k) pq.pop();
