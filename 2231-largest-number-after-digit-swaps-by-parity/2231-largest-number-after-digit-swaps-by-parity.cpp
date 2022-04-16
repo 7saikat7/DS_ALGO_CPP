@@ -1,18 +1,34 @@
 class Solution {
 public:
     int largestInteger(int num) {
-    string s=to_string(num);
-    priority_queue<int> odd,even;
-    for(auto& it:s){
-        int x=it-'0';
-        if(x%2==0) even.push(x);
-        else odd.push(x);
+    priority_queue<int> even;
+    priority_queue<int> odd;
+   string s=to_string(num);
+    while(num!=0){
+        int x=num%10;
+        num=num/10;
+        if(x%2==0){
+            even.push(x);
+        }
+        else{
+            odd.push(x);
+        }
+        
     }
-    for(auto& x:s){
-        int temp=x-'0';
-        if(temp%2==0) {x=even.top()+'0';cout<<x<<"EVEN ";even.pop();}
-        else  {x=odd.top()+'0';cout<<x<<"Odd ";odd.pop();}
+    
+    int ans=0;
+    for(char it:s){
+        cout<<it<<"__";
+        ans=ans*10;
+        if((it-'0')%2==0){
+           ans+=even.top();even.pop();
+        }
+        else{
+            ans+=odd.top();odd.pop();
+        ;
+        }
     }
-    return stoi(s);
+     return ans;   
+        
     }
 };
