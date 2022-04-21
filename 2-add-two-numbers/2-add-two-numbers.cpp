@@ -17,8 +17,9 @@ public:
  int carry=0;
 while(l1!= NULL && l2!=NULL){
     int temp= l1->val+l2->val+carry;
+    root->next=new ListNode(temp%10); 
+    //  x%y if x>y then reminder and if x<y return x ;
     
-    root->next=new ListNode(temp%10);
     carry=temp/10;
     root=root->next;
     l1=l1->next;l2=l2->next;
