@@ -23,7 +23,7 @@ public:
              root=nextptr;
              c++;
         }
-        head->next=root;
+        //head->next=root;
         int l=0;
         ListNode* temp=root;
         while(temp!=NULL)
@@ -34,6 +34,10 @@ public:
         if(root!=NULL && l>=k)
         {
             head->next=reverseKGroup(root,k);
+        }
+        else if(root!=NULL && l<k)
+        {
+            head->next=root;
         }
         
         return prev;
