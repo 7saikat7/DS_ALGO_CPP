@@ -8,8 +8,9 @@ public:
         if(number[i]==digit)
         {
          string temp1=number.substr(0,i);
-         string temp2=number.substr(i+1,n-i-1);
+         string temp2=number.substr(i+1);
          ans=max(ans,temp1+temp2);
+         cout<<ans<<endl;
         }
     }
   return ans;
